@@ -76,45 +76,33 @@
 
 
     <!-- Add this inside your <body> tag -->
-
-<!-- The Audio Element -->
+<!-- The Audio Element - Ensure the src matches your filename exactly -->
 <audio id="bgMusic" loop>
-    <source src="aamjehe.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    <source src="amjehe.mp3" type="audio/mpeg">
 </audio>
-
-<!-- Modern Music Toggle Button -->
-<div id="music-control" onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; background: rgba(56, 189, 248, 0.2); border: 1px solid #38bdf8; padding: 10px 15px; border-radius: 50px; cursor: pointer; color: #38bdf8; backdrop-filter: blur(5px); z-index: 1000; font-size: 0.8rem; display: flex; align-items: center; gap: 8px;">
-    <span id="music-icon">🔈</span> <span id="music-text">PLAY AMBIENCE</span>
-</div>
 
 <script>
     const music = document.getElementById("bgMusic");
-    const musicText = document.getElementById("music-text");
-    const musicIcon = document.getElementById("music-icon");
-    let isPlaying = false;
 
-    // This function toggles the music
-    function toggleMusic() {
-        if (isPlaying) {
-            music.pause();
-            musicText.innerText = "PLAY AMBIENCE";
-            musicIcon.innerText = "🔈";
-        } else {
-            music.play();
-            musicText.innerText = "PAUSE";
-            musicIcon.innerText = "🔊";
-        }
-        isPlaying = !isPlaying;
+    // This function attempts to play the music
+    function startAudio() {
+        music.play().then(() => {
+            console.log("Playback started successfully");
+        }).catch(error => {
+            console.log("Playback failed. Browser still blocking:", error);
+        });
     }
 
-    // Attempt to play automatically on first click anywhere on the page
-    document.body.addEventListener('click', function() {
-        if (!isPlaying) {
-            toggleMusic();
-        }
-    }, { once: true }); 
+    // STEALTH AUTO-PLAY: 
+    // This listens for the FIRST click anywhere on the page
+    window.addEventListener('click', () => {
+        startAudio();
+    }, { once: true }); // 'once: true' ensures this only runs once
 </script>
+
+
+
+    
     <header>
         <div class="container">
             <h1>Cryptographic Consulting by Future Dr. Yash Makwana</h1>
