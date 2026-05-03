@@ -41,20 +41,21 @@
     </nav>
 
     <!-- Hero Section src="https://www.youtube.com/embed/fyPF5knN6dE?autoplay=1&mute=1&controls=0&loop=1&showinfo=0&rel=0&modestbranding=1"-->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div class="absolute inset-0 z-0 opacity-50 pointer-events-none">
-            <!-- Using your YouTube Video as background -->
-            <video 
-    class="w-full h-full scale-[1.5] object-cover" 
-    autoplay 
-    muted 
-    loop 
-    playsinline
->
-    <source src="Intro1080.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
-        </div>
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+    
+    <div class="absolute inset-0 z-0 opacity-50">
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            preload="auto"
+            class="min-w-full min-h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover scale-[1.1]"
+        >
+            <source src="Intro1080.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
         <div class="hero-overlay absolute inset-0 z-1"></div>
         <div class="relative z-10 text-center px-6 max-w-4xl">
             <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight animate-fade-in opacity-0" style="animation-delay: 0.2s">
