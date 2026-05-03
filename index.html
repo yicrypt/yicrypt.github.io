@@ -3,138 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptographic Consulting by Future Dr. Yash Makwana</title>
+    <title>CryptosAudit | Cybersecurity Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Modern Dark Theme */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f172a; /* Deep navy */
-            color: #f8fafc;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* Header Section */
-        header {
-            text-align: center;
-            padding: 80px 0;
-            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-        }
-
-        h1 {
-            font-size: 3rem;
-            color: #38bdf8; /* Bright blue */
-            margin-bottom: 10px;
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: #94a3b8;
-        }
-
-        /* Services Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .card {
-            background-color: #1e293b;
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #334155;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-
-        .card h3 {
-            color: #38bdf8;
-            margin-top: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8)); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .tab-content { display: none; }
+        .tab-content.active { display: grid; animation: fadeIn 0.5s ease-out; }
     </style>
 </head>
-<body>
+<body class="bg-white text-slate-900 selection:bg-blue-100">
 
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2 font-bold text-xl tracking-tight text-white transition-colors duration-300" id="logo">
+                <i data-lucide="shield" class="text-blue-500"></i>
+                <span>CRYPTOS<span class="text-blue-500">AUDIT</span></span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-white transition-colors duration-300" id="nav-links">
+                <a href="#services" class="hover:text-blue-400 transition-colors">Services</a>
+                <a href="#video" class="hover:text-blue-400 transition-colors">Intro</a>
+                <a href="#blogs" class="hover:text-blue-400 transition-colors">Insights</a>
+                <a href="#contact" class="px-5 py-2 bg-white text-black rounded-full hover:bg-blue-500 hover:text-white transition-all shadow-lg">Contact Us</a>
+            </div>
 
-    <!-- Add this inside your <body> tag -->
-<!-- The Audio Element - Ensure the src matches your filename exactly -->
-<audio id="bgMusic" loop>
-    <source src="amjehe.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-    const music = document.getElementById("bgMusic");
-
-    // This function attempts to play the music
-    function startAudio() {
-        music.play().then(() => {
-            console.log("Playback started successfully");
-        }).catch(error => {
-            console.log("Playback failed. Browser still blocking:", error);
-        });
-    }
-
-    // STEALTH AUTO-PLAY: 
-    // This listens for the FIRST click anywhere on the page
-    window.addEventListener('click', () => {
-        startAudio();
-    }, { once: true }); // 'once: true' ensures this only runs once
-</script>
-
-
-
-    
-    <header>
-        <div class="container">
-            <h1>Cryptographic Consulting by Future Dr. Yash Makwana</h1>
-            <h2>Thanks to </h2>
-            <p class="tagline"> My beautiful wife Suman and my family</p>
-              <p class="tagline"> Mere dost Lovely, Jitu, Rehan, Naveen, Kaalu, Aman paaji,</p>
+            <button class="md:hidden text-white" id="menu-btn">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <div class="container">
-        <section>
-            <h2>Expertise & Services</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Protocol Audits 🔍</h3>
-                    <p>Deep-dive analysis of cryptographic implementations to ensure mathematical soundness and security.</p>
-                </div>
-                <div class="card">
-                    <h3>Custom Solutions 🛠️</h3>
-                    <p>Designing secure communication protocols and zero-knowledge architectures tailored to your needs.</p>
-                </div>
-                <div class="card">
-                    <h3>Research Support 📚</h3>
-                    <p>Academic-grade literature reviews and technical whitepapers for complex cryptographic systems.</p>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0 opacity-50 pointer-events-none">
+            <!-- Using your YouTube Video as background -->
+            <iframe 
+                class="w-full h-full scale-[1.5]"
+                src="https://www.youtube.com/embed/65lRAX7BH2E?autoplay=1&mute=1&controls=0&loop=1&playlist=65lRAX7BH2E&showinfo=0&rel=0&modestbranding=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+            ></iframe>
+        </div>
+        <div class="hero-overlay absolute inset-0 z-1"></div>
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight animate-fade-in opacity-0" style="animation-delay: 0.2s">
+                Securing the <span class="text-blue-500">Invisible.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 mb-10 font-light leading-relaxed animate-fade-in opacity-0" style="animation-delay: 0.4s">
+                High-assurance cryptography consulting and advanced security training for the quantum era.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in opacity-0" style="animation-delay: 0.6s">
+                <a href="#services" class="px-8 py-4 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-all shadow-xl">Explore Services</a>
+                <a href="https://youtube.com/@yourchannel" target="_blank" class="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 font-semibold rounded-full hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="youtube" class="w-5 h-5"></i> Visit Channel
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Intro Video Section -->
+    <section id="video" class="py-24 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Mastering Modern Defense</h2>
+            <p class="text-slate-600 max-w-2xl mx-auto text-lg mb-12">Watch our latest introduction to cryptographic engineering.</p>
+            
+            <div class="relative group aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-slate-200 cursor-pointer" onclick="window.open('https://youtube.com/@yourchannel', '_blank')">
+                <iframe 
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/65lRAX7BH2E"
+                    title="Intro Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+                <div class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all pointer-events-none">
+                    <div class="bg-white/90 p-4 rounded-full shadow-lg scale-0 group-hover:scale-100 transition-transform">
+                        <i data-lucide="external-link" class="text-slate-900 w-6 h-6"></i>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
+            <div class="mt-8">
+                <a href="https://youtube.com/@yourchannel" target="_blank" class="text-blue-600 font-medium hover:underline flex items-center justify-center gap-1">
+                    Subscribe for weekly updates <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 Stealth Crypto. All communications are confidential.</p>
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Expertise & Solutions</h2>
+                <div class="h-1.5 w-24 bg-blue-600 rounded-full"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="group relative">
+                    <div class="absolute -top-4 right-0 px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-bold rounded-full tracking-widest uppercase">Coming Soon</div>
+                    <div class="mb-8 p-4 bg-slate-50 w-fit rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                        <i data-lucide="terminal" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Protocol Auditing</h3>
+                    <p class="text-slate-600">Specialized mathematical verification of cryptographic implementations and architectures.</p>
+                </div>
+
+                <div class="group">
+                    <div class="mb-8 p-4 bg-slate-50 w-fit rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                        <i data-lucide="lock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Solution Deployment</h3>
+                    <p class="text-slate-600">Strategic consulting for deploying enterprise-grade encryption and key management.</p>
+                </div>
+
+                <div class="group">
+                    <div class="mb-8 p-4 bg-slate-50 w-fit rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+                        <i data-lucide="book-open" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Training Programs</h3>
+                    <p class="text-slate-600">Custom workshops for engineering teams on modern crypto and network security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section id="blogs" class="py-32 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-8 italic">Insights from the Frontlines</h2>
+                <div class="flex flex-wrap justify-center gap-4 bg-white/5 p-2 rounded-2xl w-fit mx-auto border border-white/10">
+                    <button onclick="showTab('personal')" class="tab-btn px-6 py-2 rounded-xl transition-all active bg-white text-black" id="btn-personal">Personal Logs</button>
+                    <button onclick="showTab('math')" class="tab-btn px-6 py-2 rounded-xl transition-all hover:bg-white/10" id="btn-math">Math & Crypto</button>
+                    <button onclick="showTab('news')" class="tab-btn px-6 py-2 rounded-xl transition-all hover:bg-white/10" id="btn-news">Tech News</button>
+                </div>
+            </div>
+
+            <div id="personal" class="tab-content active md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all">
+                    <div class="text-slate-400 text-sm mb-4">May 2024</div>
+                    <h4 class="text-2xl font-bold mb-4">The Journey into Quantum Resistance</h4>
+                    <p class="text-slate-400 mb-6">Reflecting on a decade of breaking and building cryptographic protocols.</p>
+                    <a href="#" class="flex items-center gap-2 font-medium group">Read Article <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all">
+                    <div class="text-slate-400 text-sm mb-4">April 2024</div>
+                    <h4 class="text-2xl font-bold mb-4">Why I Started This Firm</h4>
+                    <p class="text-slate-400 mb-6">Bridging the gap between theoretical math and practical security.</p>
+                    <a href="#" class="flex items-center gap-2 font-medium group">Read Article <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+
+            <div id="math" class="tab-content md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all">
+                    <div class="text-slate-400 text-sm mb-4">June 2024</div>
+                    <h4 class="text-2xl font-bold mb-4">ECC: A Visual Guide</h4>
+                    <p class="text-slate-400 mb-6">Deep dive into point addition that secures the web.</p>
+                    <a href="#" class="flex items-center gap-2 font-medium group">Read Article <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+
+            <div id="news" class="tab-content md:grid-cols-2 gap-8">
+                <div class="p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-all">
+                    <div class="text-slate-400 text-sm mb-4">Today</div>
+                    <h4 class="text-2xl font-bold mb-4">NIST Post-Quantum Standards</h4>
+                    <p class="text-slate-400 mb-6">The landscape of encryption is changing permanently.</p>
+                    <a href="#" class="flex items-center gap-2 font-medium group">Read Article <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-50 pt-24 pb-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 font-bold text-2xl tracking-tight mb-6">
+                        <i data-lucide="shield" class="text-blue-600"></i>
+                        <span>CRYPTOS<span class="text-blue-600">AUDIT</span></span>
+                    </div>
+                    <p class="text-slate-600 max-w-sm mb-8">Expert cryptographic advisory for financial institutions and tech leaders.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://youtube.com/@yourchannel" class="p-3 bg-white border rounded-full hover:text-red-600 transition-all shadow-sm"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">Quick Links</h5>
+                    <ul class="space-y-4 text-slate-600">
+                        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+                        <li><a href="#blogs" class="hover:text-blue-600">Insights</a></li>
+                        <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">Contact</h5>
+                    <ul class="space-y-4 text-slate-600">
+                        <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-blue-600"></i> secure@cryptosaudit.com</li>
+                        <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-blue-600"></i> Palo Alto, California</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t text-center text-slate-500 text-sm">
+                © <span id="year"></span> CryptosAudit Consulting. All rights reserved.
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const logo = document.getElementById('logo');
+            const links = document.getElementById('nav-links');
+            if (window.scrollY > 50) {
+                nav.classList.add('glass', 'shadow-md', 'py-3');
+                nav.classList.remove('py-6');
+                logo.classList.remove('text-white');
+                logo.classList.add('text-slate-900');
+                links.classList.remove('text-white');
+                links.classList.add('text-slate-900');
+            } else {
+                nav.classList.remove('glass', 'shadow-md', 'py-3');
+                nav.classList.add('py-6');
+                logo.classList.add('text-white');
+                logo.classList.remove('text-slate-900');
+                links.classList.add('text-white');
+                links.classList.remove('text-slate-900');
+            }
+        });
+
+        // Tab System
+        function showTab(tabId) {
+            // Hide all
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-black');
+                btn.classList.add('hover:bg-white/10');
+            });
+
+            // Show selected
+            document.getElementById(tabId).classList.add('active');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.classList.add('bg-white', 'text-black');
+            activeBtn.classList.remove('hover:bg-white/10');
+        }
+    </script>
 </body>
 </html>
