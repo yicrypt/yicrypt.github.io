@@ -217,6 +217,9 @@
     </section>
 
 
+
+
+
     <footer id="contact" class="bg-slate-50 pt-24 pb-12 border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-6">
         <div class="grid md:grid-cols-4 gap-12 mb-16">
@@ -228,13 +231,13 @@
                 <p class="text-slate-600 max-w-sm mb-8">Expert cryptographic advisory for financial institutions and tech leaders.</p>
                 
                 <div class="flex gap-4">
-                    <a href="https://www.linkedin.com/company/resecuritymaths" target="_blank" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm">
+                    <a href="https://www.linkedin.com/company/resecuritymaths" target="_blank" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm flex items-center justify-center">
                         <i data-lucide="linkedin" class="w-5 h-5"></i>
                     </a>
-                    <a href="https://youtube.com/@resecuritymaths" target="_blank" class="p-3 bg-white border rounded-full hover:text-red-600 transition-all shadow-sm">
+                    <a href="https://youtube.com/@resecuritymaths" target="_blank" class="p-3 bg-white border rounded-full hover:text-red-600 transition-all shadow-sm flex items-center justify-center">
                         <i data-lucide="youtube" class="w-5 h-5"></i>
                     </a>
-                    <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-400 transition-all shadow-sm">
+                    <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-400 transition-all shadow-sm flex items-center justify-center">
                         <i data-lucide="twitter" class="w-5 h-5"></i>
                     </a>
                 </div>
@@ -273,8 +276,13 @@
             © <span id="year"></span> Resecuritymaths. All rights reserved.
         </div>
     </div>
-    <script>lucide.createIcons();</script>
 </footer>
+
+<script>
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
+</script>
 
     <script>
         // Initialize Lucide Icons
