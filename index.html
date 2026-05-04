@@ -216,43 +216,65 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
     <footer id="contact" class="bg-slate-50 pt-24 pb-12 border-t border-slate-200">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
-                <div class="col-span-2">
-                    <div class="flex items-center gap-2 font-bold text-2xl tracking-tight mb-6">
-                        <i data-lucide="shield" class="text-blue-600"></i>
-                        <span>RESECURITY<span class="text-blue-600">MATHS</span></span>
-                    </div>
-                    <p class="text-slate-600 max-w-sm mb-8">Expert cryptographic advisory for financial institutions and tech leaders.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="https://youtube.com/@yourchannel" class="p-3 bg-white border rounded-full hover:text-red-600 transition-all shadow-sm"><i data-lucide="youtube" class="w-5 h-5"></i></a>
-                    </div>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-2">
+                <div class="flex items-center gap-2 font-bold text-2xl tracking-tight mb-6">
+                    <i data-lucide="shield" class="text-blue-600"></i>
+                    <span>RESECURITY<span class="text-blue-600">MATHS</span></span>
                 </div>
-                <div>
-                    <h5 class="font-bold mb-6">Quick Links</h5>
-                    <ul class="space-y-4 text-slate-600">
-                        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
-                        <li><a href="#blogs" class="hover:text-blue-600">Insights</a></li>
-                        <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="font-bold mb-6">Contact</h5>
-                    <ul class="space-y-4 text-slate-600">
-                        <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-blue-600"></i> yicrypt@gmail.com</li>
-                        <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-blue-600"></i> Palo Alto, California</li>
-                    </ul>
+                <p class="text-slate-600 max-w-sm mb-8">Expert cryptographic advisory for financial institutions and tech leaders.</p>
+                
+                <div class="flex gap-4">
+                    <a href="https://www.linkedin.com/company/resecuritymaths" target="_blank" class="p-3 bg-white border rounded-full hover:text-blue-600 transition-all shadow-sm">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://youtube.com/@resecuritymaths" target="_blank" class="p-3 bg-white border rounded-full hover:text-red-600 transition-all shadow-sm">
+                        <i data-lucide="youtube" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="p-3 bg-white border rounded-full hover:text-blue-400 transition-all shadow-sm">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
                 </div>
             </div>
-            <div class="pt-8 border-t text-center text-slate-500 text-sm">
-                © <span id="year"></span> Resecuritymaths. All rights reserved.
+
+            <div>
+                <h5 class="font-bold mb-6">Quick Links</h5>
+                <ul class="space-y-4 text-slate-600">
+                    <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+                    <li><a href="#blogs" class="hover:text-blue-600">Insights</a></li>
+                    <li><a href="#" class="hover:text-blue-600">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold mb-6">Contact</h5>
+                <ul class="space-y-4 text-slate-600">
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="mail" class="w-4 h-4 text-blue-600"></i> 
+                        yicrypt@gmail.com
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="linkedin" class="w-4 h-4 text-blue-600"></i> 
+                        <a href="https://www.linkedin.com/company/resecuritymaths" target="_blank" class="hover:text-blue-600 transition-colors">
+                            RESECURITYMATHS
+                        </a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-blue-600"></i> 
+                        New Delhi, India
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <div class="pt-8 border-t text-center text-slate-500 text-sm">
+            © <span id="year"></span> Resecuritymaths. All rights reserved.
+        </div>
+    </div>
+    <script>lucide.createIcons();</script>
+</footer>
 
     <script>
         // Initialize Lucide Icons
@@ -337,6 +359,18 @@ if (window.scrollY > 50) {
     });
 </script>
 
+<div id="blog-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+    <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeBlog()"></div>
+    
+    <div class="relative bg-white text-slate-900 w-full max-w-3xl max-h-[80vh] overflow-y-auto rounded-3xl p-8 md:p-12 shadow-2xl">
+        <button onclick="closeBlog()" class="absolute top-6 right-6 p-2 hover:bg-slate-100 rounded-full transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        
+        <div id="modal-body">
+            </div>
+    </div>
+</div>
 
 </body>
 </html>
